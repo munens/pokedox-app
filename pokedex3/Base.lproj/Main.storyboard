@@ -62,8 +62,8 @@
                                                         <constraint firstAttribute="height" constant="75" id="pod-qE-Q55"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukL-xb-fN2">
-                                                    <rect key="frame" x="0.0" y="79" width="100" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukL-xb-fN2">
+                                                    <rect key="frame" x="0.0" y="75" width="100" height="25"/>
                                                     <color key="backgroundColor" red="1" green="0.34509803919999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="ScH-6V-KxA"/>
@@ -77,8 +77,11 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="ofn-ws-8n1" secondAttribute="trailing" id="DPz-PB-jLz"/>
+                                            <constraint firstItem="ukL-xb-fN2" firstAttribute="leading" secondItem="apE-cW-RXK" secondAttribute="leading" id="RAL-7V-rkE"/>
+                                            <constraint firstAttribute="bottom" secondItem="ukL-xb-fN2" secondAttribute="bottom" id="aZ3-De-UrA"/>
                                             <constraint firstItem="ofn-ws-8n1" firstAttribute="leading" secondItem="apE-cW-RXK" secondAttribute="leading" id="dAN-1E-T1L"/>
                                             <constraint firstItem="ofn-ws-8n1" firstAttribute="top" secondItem="apE-cW-RXK" secondAttribute="top" id="oS6-6R-fWa"/>
+                                            <constraint firstAttribute="trailing" secondItem="ukL-xb-fN2" secondAttribute="trailing" id="unh-zs-39S"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="nameLbl" destination="ukL-xb-fN2" id="Tf1-Vw-mGj"/>
@@ -106,6 +109,9 @@
                             <constraint firstItem="waf-XG-LFf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="zxg-OG-5jE"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collection" destination="waf-XG-LFf" id="TvZ-7P-2on"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
