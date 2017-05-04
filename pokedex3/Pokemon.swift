@@ -12,7 +12,6 @@ class Pokemon {
     private var _name: String!
     private var _pokedexId: Int!
     
-    
     var name: String {
         return _name
     }
