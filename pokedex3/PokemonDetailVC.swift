@@ -12,7 +12,18 @@ class PokemonDetailVC: UIViewController {
     
     var pokemon: Pokemon!
 
+    @IBOutlet weak var mainImg: UIImageView!
+    @IBOutlet weak var decriptionLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var defenceLabel: UILabel!
+    @IBOutlet weak var heightLabel: UILabel!
+    @IBOutlet weak var pokedexIdLabel: UILabel!
+    @IBOutlet weak var weightLabel: UILabel!
+    @IBOutlet weak var baseAttackLabel: UILabel!
+    @IBOutlet weak var evoLabel: UILabel!
+    @IBOutlet weak var currentEvoImage: UIImageView!
+    @IBOutlet weak var nextEvoImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +38,10 @@ class PokemonDetailVC: UIViewController {
     }
     
     
+    @IBAction func backBtnPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     
-
     /*
     // MARK: - Navigation
 
