@@ -111,7 +111,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     // function that runs when an item in the collection view is selected:
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        var poke: Pokemon!
         
+        if inSearchMode {
+            poke = filteredPokemons[indexPath.row]
+        } else {
+            poke = pokemons[indexPath.row]
+        }
+        
+        performSegue(withIdentifier: "PokemonDetailVC", sender: poke)
     }
     
     // this next function returns the no of sections in the collection view:
@@ -180,6 +188,20 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             // repoulate the collection view with new data:
             collection.reloadData()
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "PokemonDetailVC" {
+            
+            // creating a variable here 'DetailsVC' that is set as the destination view controller as 'destination' here having the form in which we intend to pass 'sender' to. In the destination view controller we have set up a value pokemon and here we are setting it as 'poke' since our sender object has been given this value above in the performSegue function defined in didSelectItem method above:
+            if let detailsVC = segue.destination as? PokemonDetailVC {
+                if let poke = sender as? Pokemon {
+                    detailsVC.pokemon = poke
+                }
+            }
+        }
+        
     }
 }
 
