@@ -29,7 +29,16 @@ class PokemonDetailVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        nameLabel.text = pokemon.name
+        nameLabel.text = pokemon.name.capitalized
+        mainImg.image = UIImage(named: "\(pokemon.pokedexId)")
+        currentEvoImage.image = UIImage(named: "\(pokemon.pokedexId)")
+        pokedexIdLabel.text = "\(pokemon.pokedexId)"
+        
+        pokemon.downloadPokemonDetail {
+            // whatever we write here will be called after a netowrk call has been made.
+            print("we have arrived")
+            self.updateUI()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,6 +49,26 @@ class PokemonDetailVC: UIViewController {
     
     @IBAction func backBtnPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    func updateUI(){
+        baseAttackLabel.text = pokemon.baseAttack
+        defenceLabel.text = pokemon.defense
+        heightLabel.text = pokemon.height
+        weightLabel.text = pokemon.weight
+        typeLabel.text = pokemon.type
+        decriptionLabel.text = pokemon.description
+        
+        // need to deal with evolutions:
+        if pokemon.nextEvolutionId == "" {
+            evoLabel.text = "No more evolutions"
+            nextEvoImage.isHidden = true
+        } else {
+            nextEvoImage.isHidden = false
+            nextEvoImage.image = UIImage(named: pokemon.nextEvolutionId)
+            let str = "Next evolution: \(pokemon.nextEvolutionName) - LVL \(pokemon.nextEvolutionLevel)"
+            evoLabel.text = str
+        }
     }
     
     /*
